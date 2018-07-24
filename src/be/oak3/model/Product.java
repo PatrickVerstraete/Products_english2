@@ -65,14 +65,11 @@ public abstract class Product implements Comparable<Product> {
 
     // Other methods
     public String getProductCode() {
-        //TODO: return first three letters of brandName then first 3 letters of Name and then the volume. Spaces should be replaced by underscore and everything should be in uppercase! EXAMPLE: Brandname: Dolce & Gabbana   Name: Light Blue  Volume: 100ml  Code: DOLLIG100
-        return null;
+        return (brandName.substring(0,3) + name.substring(0,3) + volume).toUpperCase().replace(' ', '_');
     }
 
     public static Comparator<Product> sortOnBrandName() {
-
-        //TODO: implement using LAMBDAS
-        return null;
+        return Comparator.comparing(Product::getBrandName);
     }
 
     // OVERSCHRIJVEN VAN METHODS
