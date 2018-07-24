@@ -71,7 +71,7 @@ public abstract class Product implements Comparable<Product> {
 
     public static Comparator<Product> sortOnBrandName() {
 
-        //TODO: implement using STREAMS
+        //TODO: implement using LAMBDAS
         return null;
     }
 

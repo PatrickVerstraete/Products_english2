@@ -1,8 +1,10 @@
 package be.oak3.persistence;
 
+import be.oak3.model.Parfum;
 import be.oak3.model.Product;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 public class OrderImpl implements Order {
@@ -24,43 +26,41 @@ public class OrderImpl implements Order {
 
     @Override
     public void sortOnBrandName() {
-        //TODO: implement method using lambda's and streams
-    }
+        products.stream().sorted(Product.sortOnBrandName()).forEach(System.out::println);
+}
 
     @Override
     public void showProductsOfBrandName(String brandName) {
-        //TODO: implement method using lambda's and streams
+        products.stream().filter(product -> product.getBrandName().equalsIgnoreCase(brandName)).forEach(System.out::println);
     }
 
     @Override
     public void showOnlyParfums() {
-        //TODO: implement method using lambda's and streams
+        products.stream().filter(product -> product instanceof Parfum).forEach(System.out::println);
     }
 
     @Override
     public Product searchMostExpensiveProduct() {
-        //TODO: implement method using lambda's and streams
-        return null;
+        return products.stream().max(Comparator.comparingDouble(Product::getPrice)).get();
     }
 
     @Override
     public void sort() {
-        //TODO: implement method using lambda's and streams
+        products.stream().sorted().forEach(System.out::println);
     }
 
     @Override
     public void sortOnVolume() {
-        //TODO: implement method using lambda's and streams
+        products.stream().sorted(Comparator.comparingInt(Product::getVolume)).forEach(System.out::println);
     }
 
     @Override
     public void showAllProductsWithPriceLowerThen50() {
-        //TODO: implement method using lambda's and streams
+        products.stream().filter(product -> product.getPrice() < 50).forEach(System.out::println);
     }
 
     @Override
     public double totalPrice() {
-        //TODO: implement method using lambda's and streams
-        return 0;
+        return products.stream().mapToDouble(Product::getPrice).sum();
     }
 }
