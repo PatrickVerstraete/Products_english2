@@ -14,10 +14,12 @@ public class TestApp {
                 "Java Trainer");
 
         Order order = new OrderDaoImpl();
-        List<Product> lijst = Data.getData();
+        if (order.totalPrice() == 0) {
+            List<Product> lijst = Data.getData();
 
-        for (Product artikel : lijst) {
-            order.addProduct(artikel);
+            for (Product artikel : lijst) {
+                order.addProduct(artikel);
+            }
         }
 
         System.out.println("List sorted on NATURAL ORDER: ");
