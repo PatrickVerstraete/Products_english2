@@ -7,18 +7,49 @@
     <groupId>be.oak3.products</groupId>
     <artifactId>ProductsApp</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <properties>
+        <hibernate.version>5.3.5.Final</hibernate.version>
+        <jvm.version>1.8</jvm.version>
+        <mysql.version>5.1.46</mysql.version>
+        <db.name>jdbc:mysql://localhost:3306/bieren</db.name>
+        <db.user>root</db.user>
+        <db.password>root</db.password>
+    </properties>
     <build>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <configuration>
-                    <source>1.8</source>
-                    <target>1.8</target>
+                    <source>${jvm.version}</source>
+                    <target>${jvm.version}</target>
                 </configuration>
             </plugin>
         </plugins>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+            <resource>
+                <directory>src/main/resources/META-INF</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
     </build>
+    <dependencies>
+        <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>${mysql.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-core</artifactId>
+            <version>${hibernate.version}</version>
+        </dependency>
+    </dependencies>
 
 
 </project>

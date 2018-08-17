@@ -1,5 +1,9 @@
 package be.oak3.model;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class Deodorant extends Product {
 
 	private DeoType deotype;
@@ -10,7 +14,10 @@ public class Deodorant extends Product {
 		this.deotype = deotype;
 	}
 
-	@Override
+    public Deodorant() {
+    }
+
+    @Override
 	public String toString() {
 		return super.toString() + "\t" + deotype.name();
 	}
@@ -19,4 +26,5 @@ public class Deodorant extends Product {
 	public enum DeoType {
 		VAPO, STICK;
 	}
+
 }

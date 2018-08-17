@@ -3,6 +3,7 @@ package be.oak3.console;
 import be.oak3.model.Product;
 import be.oak3.persistence.Data;
 import be.oak3.persistence.Order;
+import be.oak3.persistence.OrderDaoImpl;
 import be.oak3.persistence.OrderImpl;
 
 import java.util.List;
@@ -12,7 +13,7 @@ public class TestApp {
         System.out.printf("Solution of %s %s\n", "Kenneth Van Gijsel ",
                 "Java Trainer");
 
-        Order order = new OrderImpl();
+        Order order = new OrderDaoImpl();
         List<Product> lijst = Data.getData();
 
         for (Product artikel : lijst) {
