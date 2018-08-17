@@ -1,5 +1,9 @@
 package be.oak3.model;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class AfterShave extends Product {
 
 	// INSTANCE VARIABELEN
@@ -12,7 +16,10 @@ public class AfterShave extends Product {
 		this.type = type;
 	}
 
-	// Overschrijven van toString methode.
+    public AfterShave() {
+    }
+
+    // Overschrijven van toString methode.
 	@Override
 	public String toString() {
 		return super.toString() + "\t" + type.name();

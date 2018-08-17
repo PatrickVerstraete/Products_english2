@@ -1,10 +1,14 @@
 package be.oak3.model;
 
+import javax.persistence.*;
 import java.util.Comparator;
-
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@Entity
 public abstract class Product implements Comparable<Product> {
 
     // INSTANCE VARIABELEN
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int productNumber;
     private String brandName;
     private String name;
@@ -19,6 +23,10 @@ public abstract class Product implements Comparable<Product> {
         this.setName(name);
         this.setPrice(price);
         this.setVolume(volume);
+    }
+
+    public Product() {
+
     }
 
     // GETTERS
